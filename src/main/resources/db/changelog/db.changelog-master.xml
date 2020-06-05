@@ -20,5 +20,17 @@
 	<changeSet id="20200604-3" author="neri">
 		<sqlFile path="/db/changelog/insert-departments.sql" />
 	</changeSet>
-
+	
+	<changeSet id="20200604-4" author="neri">
+		<createTable tableName="EMPLOYEES">
+			<column name="ID" type="INT" />
+			<column name="FIRST_NAME" type="VARCHAR(100)" />
+			<column name="LAST_NAME" type="VARCHAR(100)" />
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="20200604-5" author="neri">
+		<addPrimaryKey columnNames="ID" tableName="EMPLOYEES" constraintName="PK_EMPLOYEES" />
+	</changeSet>
+	
 </databaseChangeLog>

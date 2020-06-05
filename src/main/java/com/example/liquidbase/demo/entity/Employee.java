@@ -7,13 +7,15 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "DEPARTMENTS")
+@Table(name = "EMPLOYEES")
 @Data
-public class Department {
+public class Employee {
 
 	@Id
 	private Integer id;
 
-	private String name;
+	private String firstName;
 
+	private String lastName;
+	
 }
