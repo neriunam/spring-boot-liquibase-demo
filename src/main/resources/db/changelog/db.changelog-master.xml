@@ -14,9 +14,10 @@
 	</changeSet>
 
 	<changeSet id="20200603-2" author="neri">
-		<addPrimaryKey columnNames="ID" tableName="DEPARTMENTS" constraintName="PK_DEPARTMENTS" />
+		<addPrimaryKey tableName="DEPARTMENTS" columnNames="ID" constraintName="PK_DEPARTMENTS" />
+		<addAutoIncrement tableName="DEPARTMENTS" columnName="ID" columnDataType="INT" startWith="1" />
 	</changeSet>
-	
+
 	<changeSet id="20200604-1" author="neri">
 		<createTable tableName="EMPLOYEES">
 			<column name="ID" type="INT" />
@@ -26,8 +27,8 @@
 	</changeSet>
 
 	<changeSet id="20200604-2" author="neri">
-		<addPrimaryKey columnNames="ID" tableName="EMPLOYEES"
-			constraintName="PK_EMPLOYEES" />
+		<addPrimaryKey tableName="EMPLOYEES" columnNames="ID" constraintName="PK_EMPLOYEES" />
+		<addAutoIncrement tableName="EMPLOYEES" columnName="ID" columnDataType="INT" startWith="1" />
 	</changeSet>
 
 	<changeSet id="20200605-1" author="neri">
@@ -39,21 +40,16 @@
 	<changeSet id="20200605-2" author="neri">
 		<addForeignKeyConstraint
 			baseColumnNames="ID_DEPARTMENT" baseTableName="EMPLOYEES"
-			constraintName="FK_EMPLOYEES_DEPARTMENTS"
-			referencedColumnNames="ID"
+			constraintName="FK_EMPLOYEES_DEPARTMENTS" referencedColumnNames="ID"
 			referencedTableName="DEPARTMENTS" />
 	</changeSet>
 	
 	<changeSet id="20200605-3" author="neri">
-        <addAutoIncrement tableName="DEPARTMENTS"
-                          columnDataType="INT"
-                          columnName="ID"
-                          startWith="1" />
+		<addNotNullConstraint tableName="EMPLOYEES" columnName="ID_DEPARTMENT" constraintName="EMPLOYES_ID_DPEARTMENT_NOT_NULL" />
 	</changeSet>
-	
+		
 	<changeSet id="20200605-4" author="neri">
 		<sqlFile path="/db/changelog/insert-departments.sql" />
 	</changeSet>
-	
-	
+
 </databaseChangeLog>

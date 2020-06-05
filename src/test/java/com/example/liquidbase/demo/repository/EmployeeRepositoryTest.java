@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.example.liquidbase.demo.entity.Department;
+import com.example.liquidbase.demo.entity.Employee;
 import com.example.liquidbase.demo.util.HsqlDBUtils;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,12 +27,15 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @Slf4j
 @ActiveProfiles("test")
-public class DepartmentRepositoryTest {
-	
+public class EmployeeRepositoryTest {
+
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	
-	private Department newDepartment = null;
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	
+	private Employee newEmployee = null;
 
 	@BeforeAll
 	public static void initialize() {
@@ -41,32 +45,32 @@ public class DepartmentRepositoryTest {
 	
 	@BeforeEach
 	public void beforeEach() {
-		//departmentRepository.findAll().forEach(System.out::println);
-		log.info("Insert department...");
-		newDepartment = insertDepartment();
-		log.info("Inserted department: {}", newDepartment);
+		employeeRepository.findAll().forEach(System.out::println);
+		log.info("Insert employee...");
+		newEmployee = insertEmployee();
+		log.info("Inserted employee: {}", newEmployee);
 	}
 	
 	@Test
-	void given_DepartmentRepository_When_findAllMethodInvoked_Then_FoundDepartmentInCollection() {
-		Iterator<Department> it = departmentRepository.findAll().iterator();
+	void given_EmployeeRepository_When_findAllMethodInvoked_Then_FoundEmployeeInCollection() {
+		Iterator<Employee> it = employeeRepository.findAll().iterator();
 		boolean found = false;
 		while(it.hasNext()) {
-			if (it.next().equals(newDepartment)) { found = true; }
+			if (it.next().equals(newEmployee)) { found = true; }
 		}
 		assertTrue(found);
 	}
 	
 	@Test
-	void given_DepartmentRepository_When_findByIdMethodInvoked_Then_SucessRetrieveDepartment() {
-		Optional<Department> dep = departmentRepository.findById(newDepartment.getId());
+	void given_EmployeeRepository_When_findByIdMethodInvoked_Then_SucessRetrieveEmployee() {
+		Optional<Employee> dep = employeeRepository.findById(newEmployee.getId());
 		assertTrue(dep.isPresent());
-		assertEquals(newDepartment, dep.get());
+		assertEquals(newEmployee, dep.get());
 	}
 	
 	@Test
-	void given_DepartmentRepository_When_deleteMethodInvoked_Then_SucessDeletedDepartment() {
-		departmentRepository.delete(newDepartment);
+	void given_EmployeeRepository_When_deleteMethodInvoked_Then_SucessDeletedEmployee() {
+		employeeRepository.delete(newEmployee);
 		assertTrue(true);
 	}
 	
@@ -75,10 +79,17 @@ public class DepartmentRepositoryTest {
 		HsqlDBUtils.stopHsqldbServer();
 	}
 	
-	private Department insertDepartment() {
+	private Employee insertEmployee() {
+		Long time = new Date().getTime();
 		Department dep = new Department();
-		dep.setName("TEST DEPARTMENT at " + new Date().getTime());
-		return departmentRepository.save(dep);
+		dep.setName("TEST DEPARTMENT at " + time);
+		departmentRepository.save(dep);
+		log.info("Saved department: {}", dep);
+		Employee emp = new Employee();
+		emp.setDepartment(dep);
+		emp.setFirstName("TEST EMPLOYEE at" + time);
+		emp.setLastName("TEST LAST NAME");
+		return employeeRepository.save(emp);
 	}
 	
 }
