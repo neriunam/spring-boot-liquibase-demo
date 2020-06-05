@@ -16,5 +16,9 @@
 	<changeSet id="20200604-2" author="neri">
 		<addPrimaryKey columnNames="ID" tableName="DEPARTMENTS" constraintName="PK_DEPARTMENTS" />
 	</changeSet>
+	
+	<changeSet id="20200604-3" author="neri">
+		<sqlFile path="/db/changelog/insert-departments.sql" />
+	</changeSet>
 
 </databaseChangeLog>
