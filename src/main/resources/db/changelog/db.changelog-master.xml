@@ -6,31 +6,51 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
 
-	<changeSet id="20200604-1" author="neri">
+	<changeSet id="20200603-1" author="neri">
 		<createTable tableName="DEPARTMENTS">
 			<column name="ID" type="INT" />
 			<column name="NAME" type="VARCHAR(100)" />
 		</createTable>
 	</changeSet>
 
-	<changeSet id="20200604-2" author="neri">
+	<changeSet id="20200603-2" author="neri">
 		<addPrimaryKey columnNames="ID" tableName="DEPARTMENTS" constraintName="PK_DEPARTMENTS" />
 	</changeSet>
-	
-	<changeSet id="20200604-3" author="neri">
+
+	<changeSet id="20200603-3" author="neri">
 		<sqlFile path="/db/changelog/insert-departments.sql" />
 	</changeSet>
-	
-	<changeSet id="20200604-4" author="neri">
+
+	<changeSet id="20200604-1" author="neri">
 		<createTable tableName="EMPLOYEES">
 			<column name="ID" type="INT" />
 			<column name="FIRST_NAME" type="VARCHAR(100)" />
 			<column name="LAST_NAME" type="VARCHAR(100)" />
 		</createTable>
 	</changeSet>
-	
-	<changeSet id="20200604-5" author="neri">
-		<addPrimaryKey columnNames="ID" tableName="EMPLOYEES" constraintName="PK_EMPLOYEES" />
+
+	<changeSet id="20200604-2" author="neri">
+		<addPrimaryKey columnNames="ID" tableName="EMPLOYEES"
+			constraintName="PK_EMPLOYEES" />
+	</changeSet>
+
+	<changeSet id="20200605-1" author="neri">
+		<addColumn tableName="EMPLOYEES">
+			<column name="ID_DEPARTMENT" type="INT" />
+		</addColumn>
 	</changeSet>
 	
+	<changeSet id="20200605-2" author="neri">
+		<addForeignKeyConstraint
+			baseColumnNames="ID_DEPARTMENT" baseTableName="EMPLOYEES"
+			constraintName="FK_EMPLOYEES_DEPARTMENTS"
+			referencedColumnNames="ID"
+			referencedTableName="DEPARTMENTS" />
+	</changeSet>
+	
+	<changeSet id="20200605-3" author="neri">
+        <addAutoIncrement tableName="DEPARTMENTS"
+                          columnDataType="INT"
+                          columnName="ID"/>
+	</changeSet>
 </databaseChangeLog>
