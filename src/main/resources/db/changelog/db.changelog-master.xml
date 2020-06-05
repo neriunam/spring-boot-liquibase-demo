@@ -16,11 +16,7 @@
 	<changeSet id="20200603-2" author="neri">
 		<addPrimaryKey columnNames="ID" tableName="DEPARTMENTS" constraintName="PK_DEPARTMENTS" />
 	</changeSet>
-
-	<changeSet id="20200603-3" author="neri">
-		<sqlFile path="/db/changelog/insert-departments.sql" />
-	</changeSet>
-
+	
 	<changeSet id="20200604-1" author="neri">
 		<createTable tableName="EMPLOYEES">
 			<column name="ID" type="INT" />
@@ -51,6 +47,13 @@
 	<changeSet id="20200605-3" author="neri">
         <addAutoIncrement tableName="DEPARTMENTS"
                           columnDataType="INT"
-                          columnName="ID"/>
+                          columnName="ID"
+                          startWith="1" />
 	</changeSet>
+	
+	<changeSet id="20200605-4" author="neri">
+		<sqlFile path="/db/changelog/insert-departments.sql" />
+	</changeSet>
+	
+	
 </databaseChangeLog>
