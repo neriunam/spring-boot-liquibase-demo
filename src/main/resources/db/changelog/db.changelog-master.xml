@@ -5,6 +5,16 @@
 	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-		
-	
+
+	<changeSet id="20200604-1" author="neri">
+		<createTable tableName="DEPARTMENTS">
+			<column name="ID" type="INT" />
+			<column name="NAME" type="VARCHAR(100)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet id="20200604-2" author="neri">
+		<addPrimaryKey columnNames="ID" tableName="DEPARTMENTS" constraintName="PK_DEPARTMENTS" />
+	</changeSet>
+
 </databaseChangeLog>
