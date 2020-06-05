@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,11 +71,6 @@ public class EmployeeRepositoryTest {
 	void given_EmployeeRepository_When_deleteMethodInvoked_Then_SucessDeletedEmployee() {
 		employeeRepository.delete(newEmployee);
 		assertTrue(true);
-	}
-	
-	@AfterAll
-	public static void finalizeTest() {
-		HsqlDBUtils.stopHsqldbServer();
 	}
 	
 	private Employee insertEmployee() {

@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,11 +67,6 @@ public class DepartmentRepositoryTest {
 	void given_DepartmentRepository_When_deleteMethodInvoked_Then_SucessDeletedDepartment() {
 		departmentRepository.delete(newDepartment);
 		assertTrue(true);
-	}
-	
-	@AfterAll
-	public static void finalizeTest() {
-		HsqlDBUtils.stopHsqldbServer();
 	}
 	
 	private Department insertDepartment() {

@@ -52,4 +52,8 @@
 		<sqlFile path="/db/changelog/insert-departments.sql" />
 	</changeSet>
 
+	<changeSet id="20200605-5" author="neri">
+		<sqlFile path="/db/changelog/insert-employees.sql" />
+	</changeSet>
+	
 </databaseChangeLog>
