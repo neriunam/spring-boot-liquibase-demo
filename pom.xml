@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>springboot-liquibase-demo</artifactId>
+	<artifactId>spring-boot-liquibase-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-liquibase-demo</name>
 	<description>Demo project for liquibase with Spring Boot</description>
