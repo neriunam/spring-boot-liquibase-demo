@@ -49,11 +49,11 @@
 	</changeSet>
 		
 	<changeSet id="20200605-4" author="neri">
-		<sqlFile path="/db/changelog/insert-departments.sql" />
+		<sqlFile path="insert-departments.sql" relativeToChangelogFile="true" />
 	</changeSet>
 
 	<changeSet id="20200605-5" author="neri">
-		<sqlFile path="/db/changelog/insert-employees.sql" />
+		<sqlFile path="insert-employees.sql" relativeToChangelogFile="true" />
 	</changeSet>
 	
 </databaseChangeLog>
