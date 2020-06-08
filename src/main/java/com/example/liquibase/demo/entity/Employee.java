@@ -1,4 +1,4 @@
-package com.example.liquidbase.demo.entity;
+package com.example.liquibase.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

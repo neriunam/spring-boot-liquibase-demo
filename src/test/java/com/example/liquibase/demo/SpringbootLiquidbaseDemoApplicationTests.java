@@ -1,11 +1,11 @@
-package com.example.liquidbase.demo;
+package com.example.liquibase.demo;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.example.liquidbase.demo.util.HsqlDBUtils;
+import com.example.liquibase.demo.util.HsqlDBUtils;
 
 import lombok.extern.slf4j.Slf4j;
 

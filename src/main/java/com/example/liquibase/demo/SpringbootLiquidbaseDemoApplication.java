@@ -1,10 +1,10 @@
-package com.example.liquidbase.demo;
+package com.example.liquibase.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import com.example.liquidbase.demo.util.HsqlDBUtils;
+import com.example.liquibase.demo.util.HsqlDBUtils;
 
 import lombok.extern.slf4j.Slf4j;
 

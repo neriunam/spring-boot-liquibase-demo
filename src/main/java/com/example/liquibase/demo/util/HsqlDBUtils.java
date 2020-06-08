@@ -1,4 +1,4 @@
-package com.example.liquidbase.demo.util;
+package com.example.liquibase.demo.util;
 
 import java.util.Properties;
 

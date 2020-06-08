@@ -1,9 +1,9 @@
-package com.example.liquidbase.demo.repository;
+package com.example.liquibase.demo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.liquidbase.demo.entity.Employee;
+import com.example.liquibase.demo.entity.Employee;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> { }

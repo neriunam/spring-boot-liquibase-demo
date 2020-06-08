@@ -1,4 +1,4 @@
-package com.example.liquidbase.demo.repository;
+package com.example.liquibase.demo.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,9 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.example.liquidbase.demo.entity.Department;
-import com.example.liquidbase.demo.entity.Employee;
-import com.example.liquidbase.demo.util.HsqlDBUtils;
+import com.example.liquibase.demo.entity.Department;
+import com.example.liquibase.demo.entity.Employee;
+import com.example.liquibase.demo.repository.DepartmentRepository;
+import com.example.liquibase.demo.repository.EmployeeRepository;
+import com.example.liquibase.demo.util.HsqlDBUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
