@@ -10,14 +10,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
-public class SpringbootLiquidbaseDemoApplication {
+public class SpringbootLiquibaseDemoApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = null;
 		try {
 			
 			HsqlDBUtils.startHsqldbServer();
-			ctx = SpringApplication.run(SpringbootLiquidbaseDemoApplication.class, args);
+			ctx = SpringApplication.run(SpringbootLiquibaseDemoApplication.class, args);
 			
 			log.info("Running...");
 		} catch (Exception e) {
